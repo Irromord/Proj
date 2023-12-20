@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class Reciepe implements Serializable {
-    private String name;
-    private String cookingTime;
-    private String cookingSteps;
-    private int btnImgRes, icoRes;
-    private HashMap<Ingridient,String> ingridients;//ingridient : кол-во
+    private String name; //название
+    private String cookingTime; //время готовки
+    private String cookingSteps; // описание процесса готовки
+    private int btnImgRes, icoRes; //кнопка рецепта и иконка блюда
+    private HashMap<Ingridient,String> ingridients; // Hashmap - массив, содержащий в себе ingridient : кол-во
 
     public Reciepe(String name, String cookingTime, int icoRes,int btnImgRes, HashMap<Ingridient, String> ingridients, String cookingSteps) {
         this.name = name;
@@ -19,6 +19,8 @@ public class Reciepe implements Serializable {
         this.cookingSteps = cookingSteps;
     }
 
+    //функция для получения этих данных
+    
     public String getName() {
         return name;
     }
