@@ -1,3 +1,5 @@
+// информация о конкретном выбранном рецепте (его страница)
+
 package com.mygy.smartrecipes;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,33 +12,43 @@ import android.widget.TextView;
 import java.util.Map;
 
 public class ReciepeInfoActivity extends AppCompatActivity {
+    // переменная для хранения текущего рецепта, информацию о котором нужно отобразить.
     public static Reciepe reciepe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Установка пользовательского интерфейса для этой Activity из XML-макета.
         setContentView(R.layout.activity_reciepe_info);
 
+        // Находим кнопку "назад" по её ID и устанавливаем обработчик нажатия.
         ImageButton backBtn = findViewById(R.id.recipeInfo_back);
         backBtn.setOnClickListener(v -> {
+            // Завершаем Activity и возвращаемся на предыдущий экран.
             finish();
         });
 
+        // Находим ImageView для иконки рецепта
         ImageView ico = findViewById(R.id.recipeInfo_ico);
         ico.setImageResource(reciepe.getIcoRes());
 
+        // Находим TextView для названия рецепта и устанавливаем текст.
         TextView name = findViewById(R.id.recipeInfo_name);
         name.setText(reciepe.getName());
 
+        // Находим TextView для шагов приготовления и устанавливаем текст.
         TextView steps = findViewById(R.id.recipeInfo_steps);
         steps.setText(reciepe.getCookingSteps());
 
+        // Находим TextView для ингредиентов и формируем текст из списка ингредиентов.
         TextView ingridients = findViewById(R.id.recipeInfo_ingridients);
         StringBuilder res = new StringBuilder();
-        for(Map.Entry<Ingridient,String> i:reciepe.getIngridients().entrySet()){
-            res.append(i.getKey().getName()+" - "+i.getValue()+"\n\n");
+        for(Map.Entry<Ingridient, String> i : reciepe.getIngridients().entrySet()){
+            // Добавляем каждый ингредиент и его количество в текстовое представление.
+            res.append(i.getKey().getName() + " - " + i.getValue() + "\n\n");
         }
+        // Устанавливаем сформированный текст в TextView для ингредиентов.
         ingridients.setText(res);
-
     }
 }
