@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Ingridient implements Serializable {
 
     // Список всех ингредиентов, доступных в приложении
-    public static ArrayList<Ingridient> allIngridients = new ArrayList<>();
+    public static ArrayList<Ingridient> allIngridients = new ArrayList<>(); //
 
     // Список выбранных ингредиентов
     public static ArrayList<Ingridient> selectedIngridient = new ArrayList<>();
