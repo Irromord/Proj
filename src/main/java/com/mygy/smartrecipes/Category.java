@@ -8,7 +8,7 @@ import java.util.ArrayList;
 // Класс Category, который реализует интерфейс Serializable для возможности сохранения его экземпляров
 public class Category implements Serializable {
     private String name; // Имя категории
-    private int btnImageRes; // ID изображения для кнопки
+    private int btnImageRes; // картинка категории
     private ArrayList<Reciepe> resiepes = new ArrayList<>(); // Список рецептов, принадлежащих к этой категории
 
     // Конструктор класса Category
