@@ -1,3 +1,5 @@
+// страница, где мы выбираем категорию
+
 package com.mygy.smartrecipes;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +26,9 @@ public class SelectCategoryActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
-    private void initializeData(){
-        Category c1 = new Category("Завтраки",R.drawable.knopka_1);
+    private void initializeData(){  // функция, в которой мы создаем каждую категорию
+        Category c1 = new Category("Завтраки",R.drawable.knopka_1); // указываем имя и кнопку категории
+        //ингридиенты добавляются в массив
         HashMap<Ingridient,String> c1hm = new HashMap<>();
         c1hm.put(Store.eggs,"1 шт.");
         c1hm.put(Store.sugar,"30 г.");
@@ -34,7 +37,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         c1hm.put(Store.wheat_flour,"120 г.");
         c1hm.put(Store.soda,"½ чайные ложки");
         c1hm.put(Store.vegetable_oil,"2 ст. ложки");
-        c1.addReciepe(new Reciepe("Панкейки классические американские","",R.drawable.b1,R.drawable.s13
+        c1.addReciepe(new Reciepe("Панкейки классические американские","",R.drawable.b1,R.drawable.s13 //и добавляются в список
                 ,c1hm,"1. Яйца, сахар и соль взбить до пены.\n" +
                 "2. Влить половину молока, взбить, постепенно всыпать половину муки, чтобы не было комков. Влить оставшееся молоко и так же постепенно досыпать муку.\n" +
                 "3. Погасить соду, добавить в тесто, вылить масло. Еще раз хорошо все взбить. Дать тесту постоять, погреть сковороду.\n" +
