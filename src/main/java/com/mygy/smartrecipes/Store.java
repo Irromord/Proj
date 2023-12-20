@@ -1,5 +1,5 @@
 //класс для хранения ингридиентов
-
+// все элементы доступны к использованию везде (public), доступны без создания объектов (static) и неизменяемы (final)
 package com.mygy.smartrecipes;
 
 public class Store {
