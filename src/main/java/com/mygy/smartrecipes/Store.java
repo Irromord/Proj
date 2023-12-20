@@ -1,3 +1,5 @@
+//класс для хранения ингридиентов
+
 package com.mygy.smartrecipes;
 
 public class Store {
