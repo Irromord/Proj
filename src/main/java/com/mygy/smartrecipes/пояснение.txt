@@ -1,0 +1,38 @@
+MainActivity.java:
+
+Этот файл является точкой входа в приложение. Содержит логику инициализации пользовательского интерфейса главного экрана приложения.
+
+
+Category.java:
+
+Класс для всех категорий (обед/завтрак и т.д.)
+
+
+Ingridient.java:
+
+Этот класс представляет модель данных для ингредиента. Он может содержать такие сведения, как название ингредиента и другие свойства, связанные с ингредиентами.
+
+
+Reciepe.java:
+
+Этот файл, вероятно, представляет модель данных рецепта. Он может содержать информацию о названии рецепта, ингредиентах, процессе приготовления и других характеристиках рецепта.
+
+
+
+CategoriesRecyclerAdapter.java, IngridientsRecyclerAdapter.java, RecipesRecyclerAdapter.java:
+
+Эти файлы представляют собой адаптеры, которые используются для отображения списков данных в пользовательском интерфейсе. Каждый адаптер связывает данные соответствующих моделей (Category, Ingridient, Reciepe) с элементами пользовательского интерфейса, такими как списки на экране.
+
+
+IngridientsSelectorActivity.java, RecipesActivity.java, ReciepeInfoActivity.java:
+
+Эти файлы представляют отдельные экраны (Activity) в приложении. Например, IngridientsSelectorActivity может использоваться для выбора ингредиентов, RecipesActivity - для отображения списка рецептов, а ReciepeInfoActivity - для показа подробной информации о конкретном рецепте.
+
+
+В контексте Android-приложения, эти файлы взаимодействуют следующим образом:
+
+MainActivity служит точкой входа и может перенаправлять пользователя на другой экран. Переходить можно по экранам таким, как IngridientsSelectorActivity, RecipesActivity, и ReciepeInfoActivity.
+
+Модели данных (Category, Ingridient, Reciepe) используются в адаптерах RecyclerView (CategoriesRecyclerAdapter, IngridientsRecyclerAdapter, RecipesRecyclerAdapter) для заполнения списков данных в соответствующих Activity.
+
+Каждое Activity (IngridientsSelectorActivity, RecipesActivity, ReciepeInfoActivity) использует соответствующие адаптеры для отображения данных в пользовательском интерфейсе.
