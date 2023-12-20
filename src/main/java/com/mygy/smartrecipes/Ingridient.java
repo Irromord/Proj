@@ -1,3 +1,5 @@
+//класс ингридиента
+
 package com.mygy.smartrecipes;
 
 import java.io.Serializable;
