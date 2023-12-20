@@ -10,7 +10,8 @@ public class Reciepe implements Serializable {
     private int btnImgRes, icoRes; //кнопка рецепта и иконка блюда
     private HashMap<Ingridient,String> ingridients; // Hashmap - массив, содержащий в себе ingridient : кол-во
 
-    public Reciepe(String name, String cookingTime, int icoRes,int btnImgRes, HashMap<Ingridient, String> ingridients, String cookingSteps) {
+// Конструктор для создания объекта рецепта
+    public Reciepe(String name, String cookingTime, int icoRes, int btnImgRes, HashMap<Ingridient, String> ingridients, String cookingSteps) {
         this.name = name;
         this.cookingTime = cookingTime;
         this.icoRes = icoRes;
@@ -19,28 +20,34 @@ public class Reciepe implements Serializable {
         this.cookingSteps = cookingSteps;
     }
 
-    //функция для получения этих данных
-    
+    // Геттеры для доступа к данным рецепта
+
+    // Возвращает название блюда
     public String getName() {
         return name;
     }
+
+    // Возвращает ID ресурса изображения кнопки рецепта
     public int getBtnImgRes() {
         return btnImgRes;
     }
 
+    // Возвращает ID ресурса иконки блюда
     public int getIcoRes() {
         return icoRes;
     }
 
-
+    // Возвращает время приготовления
     public String getCookingTime() {
         return cookingTime;
     }
 
+    // Возвращает описание шагов приготовления
     public String getCookingSteps() {
         return cookingSteps;
     }
 
+    // Возвращает список ингредиентов и их количество
     public HashMap<Ingridient, String> getIngridients() {
         return ingridients;
     }
