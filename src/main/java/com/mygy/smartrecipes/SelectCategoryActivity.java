@@ -10,21 +10,39 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// Определение класса SelectCategoryActivity, который наследуется от AppCompatActivity.
+// AppCompatActivity является базовым классом для активностей, который поддерживает функции совместимости на разных версиях Android.
 public class SelectCategoryActivity extends AppCompatActivity {
 
+    // Это общий список категорий, который используется в этой активности.
     public static ArrayList<Category> categories = new ArrayList<>();
 
+    // Метод onCreate вызывается при создании активности.
+    // Bundle savedInstanceState содержит состояние активности, если она была пересоздана (например, при изменении конфигурации).
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Установка пользовательского интерфейса для активности из XML-файла разметки.
         setContentView(R.layout.activity_select_category);
 
+        // Вызов пользовательского метода для инициализации данных. 
+        // Это может включать загрузку данных в список категорий или другие подготовительные операции.
         initializeData();
 
+        // Поиск RecyclerView по идентификатору в разметке.
+        // RecyclerView используется для отображения списка данных (в данном случае категорий) в виде прокручиваемого списка.
         RecyclerView recycler = findViewById(R.id.selectCategory_recycler);
+
+        // Создание адаптера для RecyclerView. Адаптер отвечает за привязку данных к представлениям.
+        // CategoriesRecyclerAdapter - это пользовательский адаптер, который принимает контекст и список категорий.
         CategoriesRecyclerAdapter adapter = new CategoriesRecyclerAdapter(this, categories);
+
+        // Установка адаптера для RecyclerView. Это связывает данные списка категорий с RecyclerView.
         recycler.setAdapter(adapter);
     }
+}
+
 
     private void initializeData(){  // функция, в которой мы создаем каждую категорию
         Category c1 = new Category("Завтраки",R.drawable.knopka_1); // указываем имя и кнопку категории
