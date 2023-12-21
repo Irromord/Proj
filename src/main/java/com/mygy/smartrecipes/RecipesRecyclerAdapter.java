@@ -1,3 +1,5 @@
+//адаптер чтобы выводить список рецептов
+
 package com.mygy.smartrecipes;
 
 import android.content.Context;
@@ -11,42 +13,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecipesRecyclerAdapter extends RecyclerView.Adapter<RecipesRecyclerAdapter.ViewHolder> {
-    private final LayoutInflater inflater;
-    private final List<Reciepe> recipes;
+// Определение класса SelectCategoryActivity, который наследуется от AppCompatActivity.
+// AppCompatActivity является базовым классом для активностей, который поддерживает функции совместимости на разных версиях Android.
+public class SelectCategoryActivity extends AppCompatActivity {
 
-    public RecipesRecyclerAdapter(Context context, List<Reciepe> recipes) {
-        this.recipes = recipes;
-        this.inflater = LayoutInflater.from(context);
-    }
+    // Это общий список категорий, который используется в этой активности.
+    public static ArrayList<Category> categories = new ArrayList<>();
+
+    // Метод onCreate вызывается при создании активности.
+    // Bundle savedInstanceState содержит состояние активности, если она была пересоздана (например, при изменении конфигурации).
     @Override
-    public RecipesRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recipe_button_item, parent, false);
-        return new ViewHolder(view);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Установка пользовательского интерфейса для активности из XML-файла разметки.
+        setContentView(R.layout.activity_select_category);
+
+        // Вызов пользовательского метода для инициализации данных. 
+        initializeData();
+
+        // Поиск RecyclerView по идентификатору в разметке.
+        // RecyclerView используется для отображения списка данных (в данном случае категорий) в виде прокручиваемого списка.
+        RecyclerView recycler = findViewById(R.id.selectCategory_recycler);
+
+        // Создание адаптера для RecyclerView. Адаптер отвечает за привязку данных к представлениям.
+        // CategoriesRecyclerAdapter - это пользовательский адаптер, который принимает контекст и список категорий.
+        CategoriesRecyclerAdapter adapter = new CategoriesRecyclerAdapter(this, categories);
+
+        // Установка адаптера для RecyclerView. Это связывает данные списка категорий с RecyclerView (компонент пользо-го интерфейса).
+        recycler.setAdapter(adapter);
     }
 
-    @Override
-    public void onBindViewHolder(RecipesRecyclerAdapter.ViewHolder holder, int position) {
-        Reciepe reciepe = recipes.get(position);
-
-        holder.btn.setImageResource(reciepe.getBtnImgRes());
-        holder.btn.setOnClickListener(v -> {
-            Intent intent = new Intent(inflater.getContext(), ReciepeInfoActivity.class);
-            ReciepeInfoActivity.reciepe = reciepe;
-            inflater.getContext().startActivity(intent);
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return recipes.size();
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView btn;
-        ViewHolder(View view){
-            super(view);
-            btn = view.findViewById(R.id.recipe_btn);
-        }
+      private void initializeData() {
     }
 }
+
