@@ -11,7 +11,7 @@ import android.widget.Button;
 // Основной класс Activity для приложения.
 public class MainActivity extends AppCompatActivity {
 
-    // Метод onCreate вызывается при создании Activity.
+    // Метод onCreate вызывается при создании Activity, начало жизненного цикла приложения
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
